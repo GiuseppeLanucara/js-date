@@ -21,19 +21,41 @@
 
 
 //assenze massime sono 60 
-const assenzeMax = 60;
-console.log(assenzeMax);
+// const assenzeMax = 60;
+// console.log(assenzeMax);
 
-//chiedere ad utente assenze già fatte 
-const assenzeFatte = parseInt(prompt("Quante assenze hai già fatto?"));
-console.log(assenzeFatte, typeof (assenzeFatte));
+// //chiedere ad utente assenze già fatte 
+// const assenzeFatte = parseInt(prompt("Quante assenze hai già fatto?"));
+// console.log(assenzeFatte, typeof (assenzeFatte));
 
 
-//sapere quanti giorni di assenza sono ancora possibili all'utente
-const assenzeRimaste = assenzeMax - assenzeFatte
-console.log(assenzeRimaste);
+// //sapere quanti giorni di assenza sono ancora possibili all'utente
+// const assenzeRimaste = assenzeMax - assenzeFatte
+// console.log(assenzeRimaste);
 
-let output = document.getElementById("restanti").innerHTML
-console.log(output);
+// let output = document.getElementById("restanti").innerHTML
+// console.log(output);
 
-document.getElementById("restanti").innerHTML = output + `${assenzeRimaste}`; 
+// document.getElementById("restanti").innerHTML = output + `${assenzeRimaste}`; 
+
+
+
+const assenzaMassime = 60;
+
+let assenzeFatte = parseInt(prompt("Quante assenze hai fatto?"));
+
+if ((assenzeFatte > 60) || (assenzeFatte) < 0) {
+    while ((assenzeFatte > 60) || (assenzeFatte < 0)) {
+        alert("dato non valido inserire un valore da 1 a 60")
+        assenzeFatte = parseInt(prompt("Quante assenze hai fatto?"));
+    }
+    const assenzeRimanenti = assenzaMassime - assenzeFatte;
+    document.getElementById("restanti").innerHTML = "Ti rimangono" + " " + `${assenzeRimanenti}` + " " + "assenze";
+
+} else {
+    const assenzeRimanenti = assenzaMassime - assenzeFatte;
+
+
+    document.getElementById("restanti").innerHTML = "Ti rimangono" + " " + `${assenzeRimanenti}` + " " + "assenze";
+}
+
